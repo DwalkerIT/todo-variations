@@ -11,3 +11,7 @@ in client folder is a way to disable react warnings (should be utilized temporar
 
 ```.env```
 ```.eslintrc```
+
+To install packages
+
+```yarn run install project```

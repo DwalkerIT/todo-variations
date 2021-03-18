@@ -21,7 +21,8 @@ router.get('/todos/search', async (req, res) => {
 // INSERT INTO todos (description, status) VALUES (?,?), ['some description', 'active']
 router.post('/todos', async (req, res) => {
   const description = req.body.description
-  await dbConnection.table('todos').insert({description: description, status: 'active'})
+  // notice I am hardcoding the userId of 1 here
+  await dbConnection.table('todos').insert({description: description, status: 'active', userId: 1})
   res.json({message: 'todo created!'})
 })
 

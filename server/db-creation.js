@@ -26,13 +26,13 @@ async function main() {
   const salt1 = createSalt(20)
   await dbConnection.table('users').insert({
     username: 'userOne',
-    password: hashPassword(salt1 + 'test'),
+    password: hashPassword('test' + salt1),
     salt: salt1
   })
   const salt2 = createSalt(20)
   await dbConnection.table('users').insert({
     username: 'userTwo',
-    password: hashPassword(salt2 + 'test'),
+    password: hashPassword('test' + salt2),
     salt: salt2
   })
   await dbConnection.table('todos').insert([

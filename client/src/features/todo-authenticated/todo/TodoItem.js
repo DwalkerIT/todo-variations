@@ -1,16 +1,20 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { deleteTodo, updateTodoStatus } from './todoSlice'
+import TodoEditDescription from './TodoEditDescription'
 
 export default function TodoItem(props) {
   const todo = props.todo
+  const dispatch = useDispatch()
   return (
     <li className="todo-app-item">
-      <span>{todo.description}</span>
+      <TodoEditDescription todo={todo} />
       <div>
-        <span onClick={() => props.onDelete(todo.id)}>x</span>
+        <span onClick={() => dispatch(deleteTodo(todo.id))}>x</span>
         <input
           type="checkbox"
-          checked={todo.completed}
-          onChange={() => props.onStatusChange(todo.id)}
+          checked={todo.status === 'completed'}
+          onChange={() => dispatch(updateTodoStatus(todo.id, todo.status))}
         />
       </div>
     </li>

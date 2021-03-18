@@ -8,8 +8,6 @@ export default function TodoList(props) {
         <TodoItem 
           key={'todo-' + todo.id}
           todo={todo}
-          onDelete={props.onDelete}
-          onStatusChange={props.onStatusChange}
         />
       ))}
     </ul>

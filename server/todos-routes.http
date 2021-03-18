@@ -1,0 +1,36 @@
+GET http://localhost:3001/api/todos
+
+###
+
+DELETE http://localhost:3001/api/todos/1
+
+###
+
+PATCH http://localhost:3001/api/todos/2
+content-type: application/json
+
+{
+  "description": "update"
+}
+
+###
+
+PATCH http://localhost:3001/api/todos/2
+content-type: application/json
+
+{
+  "description": "todo 2"
+}
+
+###
+
+PATCH http://localhost:3001/api/todos/2
+content-type: application/json
+
+{
+  "status": "completed"
+}
+
+###
+
+GET http://localhost:3001/api/todos/search?description=todo

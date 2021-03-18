@@ -3,7 +3,7 @@ import TodoList from './TodoList'
 import TodoForm from './TodoForm'
 import './TodoApp.css'
 
-export default function TodoApp() {
+export default function TodoApp({name}) {
   const [todos, setTodos] = useState([])
   useEffect(() => {
     console.log('%c State from TodoApp useState', 'color:green;')
@@ -29,6 +29,7 @@ export default function TodoApp() {
   }
   return (
     <div className="todo-app">
+      <h1>{name}</h1>
       <TodoForm onSubmit={handleSubmit} />
       <TodoList
         todos={todos}

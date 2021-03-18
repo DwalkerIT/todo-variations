@@ -1,0 +1,32 @@
+/*
+  notice how this script is imported in one file but can be accessed globally
+  another approach is using modules - keeping this simple for now
+*/
+
+.todo-app {
+  background: #ddd;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.todo-app input {
+  padding: 10px;
+}
+
+.todo-app-item {
+  padding: 10px 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.todo-app-form {
+  display: flex;
+}
+
+.todo-app-form input {
+  width: 100%;
+}
+
+.todo-app-form button {
+  margin-left: 20px;
+}

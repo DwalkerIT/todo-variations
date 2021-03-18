@@ -1,29 +1,19 @@
 import express from 'express'
+import './config.js'
 import todosRoutes from './routes/todos.js'
+import todosAuthExampleRoutes from './routes/todos-auth-example.js'
+import authRoutes from './routes/auth.js'
+import logRequests from './middleware/logger.js'
+import attachUser from './middleware/auth.js'
 const app = express()
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
-
-const objectNotEmpty = (o) => Object.keys(o).length !== 0
-
-app.use(function(req, res, next) {
-  console.log(`A ${req.method} was made on the client!`)
-  if (objectNotEmpty(req.body)) {
-    console.log('request body')
-    console.table(req.body)
-  }
-  if (objectNotEmpty(req.query)) {
-    console.log('request query')
-    console.table(req.query)
-  }
-  if (objectNotEmpty(req.params)) {
-    console.log('request params')
-    console.table(req.params)
-  }
-  next()
-})
+app.use(attachUser)
+app.use(logRequests)
 
 app.use('/api', todosRoutes)
+app.use('/api/auth-example', todosAuthExampleRoutes)
+app.use('/api', authRoutes)
 function handleStart() {
   console.log('running on port 3001')
 }

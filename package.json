@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "db-init": "cd server && node db-creation.js",
-    "client": "cd client and yarn start",
-    "server": "cd server and yarn start",
-    "start": "concurrently \"yarn run client\" \"yarn run server\""
+    "client": "cd client && npm start",
+    "server": "cd server && npm start",
+    "start": "concurrently \"npm run client\" \"npm run server\"",
+    "install-project": "concurrently \"cd client && yarn install\" \"cd server && yarn install\""
   },
   "keywords": [],
   "author": "",
